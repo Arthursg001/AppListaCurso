@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppListaCurso</string>
+    <string name="app_name_TelefoneContato">Telefone Contato</string>
+    <string name="app_name_CursoInteresse">Curso Interessado</string>
+    <string name="app_name_SegundoNome">Sobrenome</string>
+    <string name="app_name_PrimeiroNome">Nome</string>
+</resources>
