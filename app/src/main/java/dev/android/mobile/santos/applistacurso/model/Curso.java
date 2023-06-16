@@ -10,7 +10,6 @@ public class Curso {
         this.cursoDesejado = cursoDesejado;
     }
 
-
     public String getCursoDesejado() {
         return cursoDesejado;
     }

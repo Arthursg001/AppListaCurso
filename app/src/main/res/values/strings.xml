@@ -4,4 +4,13 @@
     <string name="app_name_CursoInteresse">Curso Interessado</string>
     <string name="app_name_SegundoNome">Sobrenome</string>
     <string name="app_name_PrimeiroNome">Nome</string>
+    <string name="txt_Titulo">App Lista Curso</string>
+    <string name="txt_hint_edit_primeiro_nome">Primeiro Nome</string>
+    <string name="txt_hint_edit_sobrenome">Sobrenome</string>
+    <string name="txt_hint_edit_curso_desejado">Curso Interessado</string>
+    <string name="txt_hint_edit_telefone_contato">Telefone Contato</string>
+    <string name="txt_selecione_o_curso">Selecione o Curso</string>
+    <string name="txt_button_limpar">Limpar</string>
+    <string name="txt_button_finalizar">Finalizar</string>
+    <string name="txt_button_salvar">Salvar</string>
 </resources>

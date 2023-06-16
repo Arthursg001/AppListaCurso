@@ -2,6 +2,7 @@ package dev.android.mobile.santos.applistacurso.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
     Pessoa outraPessoa;
     List<String> nomesDoCurso;
 
-    EditText edit_PrimeiroNome;
-    EditText edit_SegundoNome;
-    EditText edit_CursoDesejado;
-    EditText edit_TelefoneContato;
+    EditText editPrimeiroNome;
+    EditText editSobrenome;
+    EditText editCursoDesejado;
+    EditText editTelefoneContato;
 
     Button btn_Salvar;
     Button btn_Limpar;
@@ -38,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spinner);
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
@@ -53,16 +55,16 @@ public class MainActivity extends AppCompatActivity {
         outraPessoa = new Pessoa();
         controller.procurar(outraPessoa);
 
-        edit_PrimeiroNome = findViewById(R.id.edit_PrimeiroNome);
-        edit_SegundoNome = findViewById(R.id.edit_SegundoNome);
-        edit_CursoDesejado = findViewById(R.id.edit_CursoDesejado);
-        edit_TelefoneContato = findViewById(R.id.edit_TelefoneContato);
+        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+        editSobrenome = findViewById(R.id.editSobrenome);
+        editCursoDesejado = findViewById(R.id.editCursoDesejado);
+        editTelefoneContato = findViewById(R.id.editTelefoneContato);
 
-        spinner = findViewById(R.id.spinnerCursos);
+        spinner = findViewById(R.id.spinnerCurso);
 
-        btn_Limpar = findViewById(R.id.btn_Limpar);
-        btn_Salvar = findViewById(R.id.btn_Salvar);
-        btn_Finalizar = findViewById(R.id.btn_Finalizar);
+        btn_Limpar = findViewById(R.id.btnLimpar);
+        btn_Salvar = findViewById(R.id.btnSalvar);
+        btn_Finalizar = findViewById(R.id.btnFinalizar);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cursoController.dadosSpinner());
 
@@ -70,19 +72,19 @@ public class MainActivity extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
 
-        edit_PrimeiroNome.setText(outraPessoa.getPrimeiroNome());
-        edit_SegundoNome.setText(outraPessoa.getSegundoNome());
-        edit_CursoDesejado.setText(outraPessoa.getCursoDesejado());
-        edit_TelefoneContato.setText(outraPessoa.getTelefoneContato());
+        editPrimeiroNome.setText(outraPessoa.getPrimeiroNome());
+        editSobrenome.setText(outraPessoa.getSegundoNome());
+        editCursoDesejado.setText(outraPessoa.getCursoDesejado());
+        editTelefoneContato.setText(outraPessoa.getTelefoneContato());
 
         btn_Limpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Informacoes Limpadas", Toast.LENGTH_LONG).show();
-                edit_PrimeiroNome.setText("");
-                edit_SegundoNome.setText("");
-                edit_CursoDesejado.setText("");
-                edit_TelefoneContato.setText("");
+                editPrimeiroNome.setText("");
+                editSobrenome.setText("");
+                editCursoDesejado.setText("");
+                editTelefoneContato.setText("");
                 controller.limpar();
             }
         });
@@ -98,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         btn_Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                outraPessoa.setPrimeiroNome(edit_PrimeiroNome.getText().toString());
-                outraPessoa.setSegundoNome(edit_SegundoNome.getText().toString());
-                outraPessoa.setCursoDesejado(edit_CursoDesejado.getText().toString());
-                outraPessoa.setTelefoneContato(edit_TelefoneContato.getText().toString());
+                outraPessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
+                outraPessoa.setSegundoNome(editSobrenome.getText().toString());
+                outraPessoa.setCursoDesejado(editCursoDesejado.getText().toString());
+                outraPessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Dados salvos com sucesso" + outraPessoa.toString(), Toast.LENGTH_LONG).show();
 
